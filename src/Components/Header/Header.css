@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Langar&display=swap");
+.Header {
+  font-weight: bolder;
+  font-size: x-large;
+  background-color: rgba(255, 0, 0, 0.801);
+  color: white;
+  text-align: center;
+  padding: 25px 0px;
+  font-family: "Langar", cursive;
+}
