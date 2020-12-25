@@ -6,7 +6,6 @@ function BlogForm() {
   const INITIAL_STATE = {
     title: "",
     description: "",
-    image: null,
   };
 
   const [state, setState] = useState(INITIAL_STATE);
@@ -17,8 +16,7 @@ function BlogForm() {
     });
   };
 
-  const isDisabled =
-    state.title === "" || state.description === "" || state.image == null;
+  const isDisabled = state.title === "" || state.description === "";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,18 +49,7 @@ function BlogForm() {
                   value={state.description}
                 />
               </Form.Group>
-              <Form.Group controlId="file">
-                <Form.Label>Image</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(event) => {
-                    setState({
-                      ...state,
-                      image: event.target.files[0],
-                    });
-                  }}
-                />
-              </Form.Group>
+
               <div className="float-right">
                 <Button
                   variant="danger"

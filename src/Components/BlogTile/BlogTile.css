@@ -1,0 +1,36 @@
+.BlogTile {
+  background-color: rgb(221, 243, 177);
+  padding: 25px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.BlogTile__minHeight {
+  min-height: 220px;
+}
+
+.BlogTile__contentTile {
+  background-color: rgb(231, 247, 201);
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.BlogTile__header {
+  font-weight: bold;
+  font-size: x-large;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.BlogTile__body {
+  font-size: large;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  max-height: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
