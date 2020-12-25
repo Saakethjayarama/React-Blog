@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BlogForm from "../BlogForm";
 import Landing from "../Landing";
 import Blog from "../Blog";
+import Dashboard from "../Dashboard";
 
 function App() {
   return (
@@ -14,8 +15,14 @@ function App() {
           <Route path="/new">
             <BlogForm />
           </Route>
-          <Route path="/blog">
+          <Route path="/blog/:id">
             <Blog />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/edit/:id">
+            <BlogForm />
           </Route>
           <Route path="/">
             <Landing />
