@@ -19,7 +19,11 @@ function BlogForm() {
 
   const isDisabled =
     state.title === "" || state.description === "" || state.image == null;
-  console.log(state);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(state);
+  };
   return (
     <div className="BlogForm">
       <Container className="BlogForm__Container">
@@ -27,7 +31,7 @@ function BlogForm() {
         <br />
         <Row>
           <Col md={6}>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group controlId="title">
                 <Form.Label>Title of Blog</Form.Label>
                 <Form.Control
