@@ -14,30 +14,35 @@
       $blogs = [];
       if($resultSet->num_rows > 0) {
         while($row = $resultSet->fetch_assoc()) {
-          $blogs[] = new Blog($row['id']);
+          $blogs[] = new Blog($row['id'], $row['title'], $row['description'], $row['created_at'], $row['author']);
         }
       }
 
+      return $blogs;
       $connection->close();
     }
+
     function addBlog($blog) {
       $connection = JdbcUtil::getConnection();
       $sql = '';
 
       $connection->close();
     }
+
     function deleteBlog($id) {
       $connection = JdbcUtil::getConnection();
       $sql = '';
 
       $connection->close();
     }
+
     function getBlogById($id) {
       $connection = JdbcUtil::getConnection();
       $sql = '';
 
       $connection->close();
     }
+    
   }
 
 ?>
