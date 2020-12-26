@@ -53,9 +53,21 @@
 
     function getBlogById($id) {
       $connection = JdbcUtil::getConnection();
-      $sql = '';
+      $sql = 'select * from blogs where id = *';
 
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('i', $id);
+      
+      $blog = null;
+      if($statement->execute()) {
+        $statement->bind_result($id, $title, $description, $createdAt, $author);
+        if($statement->fetch()) {
+          $blog = new Blog($id, $title, $description, $createdAt, $author);
+        }
+      }
+      
       $connection->close();
+      return $blog;
     }
 
   }
