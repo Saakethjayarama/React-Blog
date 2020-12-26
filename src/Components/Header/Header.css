@@ -10,6 +10,7 @@
   font-weight: bolder;
   font-size: x-large;
   font-family: "Langar", cursive;
+  cursor: pointer;
 }
 
 .Header__navlinks {
