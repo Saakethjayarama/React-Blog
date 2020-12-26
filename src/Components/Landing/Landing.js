@@ -6,6 +6,8 @@ import "./Landing.css";
 function Landing(props) {
   const [isactive, setActive] = useState(true);
   const [posts, setPosts] = useState([]);
+
+  const [reload, setReload] = useState(null);
   useEffect(() => {
     setActive(true);
     fetch("http://localhost/get.php")
@@ -18,7 +20,7 @@ function Landing(props) {
     return () => {
       setActive(false);
     };
-  }, []);
+  }, [reload]);
 
   console.log(posts);
 
@@ -28,7 +30,14 @@ function Landing(props) {
         <Row>
           <Col md={10} className="Landing__BlogTile">
             {posts.map((value, index) => {
-              return <BlogTile {...props} key={index} state={value} />;
+              return (
+                <BlogTile
+                  {...props}
+                  key={index}
+                  state={value}
+                  initFetch={setReload}
+                />
+              );
             })}
           </Col>
         </Row>
