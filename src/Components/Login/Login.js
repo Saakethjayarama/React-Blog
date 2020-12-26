@@ -32,6 +32,19 @@ function Login() {
 
   const [message, setMessage] = useState("");
 
+  const cookies = new Map(
+    document.cookie.split("; ").map((v) => v.split("=").map(decodeURIComponent))
+  );
+
+  let payload = {};
+  cookies.forEach((value, key) => {
+    payload[key] = value;
+  });
+
+  if (payload.loggedIn) {
+    history.push("/dashboard");
+  }
+
   return (
     <div className="Login">
       <Form onSubmit={handleSubmit}>

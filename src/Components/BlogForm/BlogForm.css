@@ -5,3 +5,8 @@
 .btn {
   margin: 2px;
 }
+.Dashboard__FabLogout {
+  position: fixed !important;
+  bottom: 120px;
+  right: 30px;
+}

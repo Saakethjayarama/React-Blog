@@ -3,9 +3,34 @@ import "./BlogForm.css";
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useParams, useHistory } from "react-router-dom";
 
+import Fab from "@material-ui/core/Fab";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function BlogForm(props) {
   const params = useParams();
   const history = useHistory();
+
+  // auth
+  const cookies = new Map(
+    document.cookie.split("; ").map((v) => v.split("=").map(decodeURIComponent))
+  );
+
+  let payload = {};
+  cookies.forEach((value, key) => {
+    payload[key] = value;
+  });
+
+  if (!payload.loggedIn) {
+    history.push("/");
+  }
 
   const INITIAL_STATE = {
     title: "",
@@ -65,6 +90,27 @@ function BlogForm(props) {
 
   return (
     <div className="BlogForm">
+      <Fab
+        color="primary"
+        aria-label="add"
+        className="Dashboard__FabLogout"
+        onClick={() => {
+          setCookie("loggedIn", null, -1);
+          history.push("/");
+        }}
+      >
+        <ExitToAppIcon />
+      </Fab>
+      <Fab
+        color="primary"
+        aria-label="add"
+        className="Dashboard__Fab"
+        onClick={() => {
+          history.push("/dashboard");
+        }}
+      >
+        <DashboardIcon />
+      </Fab>
       <Container className="BlogForm__Container">
         <h3>Create Blog</h3>
         <br />
