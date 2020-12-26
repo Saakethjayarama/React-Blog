@@ -24,9 +24,20 @@
 
     function addBlog($blog) {
       $connection = JdbcUtil::getConnection();
-      $sql = '';
+      $sql = 'insert into blogs(title, description, author) values(?, ?, ?)';
+      $statement = $connection->prepare($sql);
 
+      $title = $blog->getTitle();
+      $description = $blog->getDescription();
+      $author = $blog->getAuthor();
+
+      $statement->bind_param('sss', $title, $description, $author);
+      $statement->execute();
+
+      $n = $connection->inserted_id;
       $connection->close();
+
+      return $n;
     }
 
     function deleteBlog($id) {
