@@ -22,8 +22,6 @@ function Landing(props) {
     };
   }, [reload]);
 
-  console.log(posts);
-
   return (
     <div className="Landing">
       <Container fluid>

@@ -23,4 +23,5 @@
 
 .Header__navlink {
   cursor: pointer;
+  margin: 0px 10px;
 }

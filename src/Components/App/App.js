@@ -5,6 +5,7 @@ import BlogForm from "../BlogForm";
 import Landing from "../Landing";
 import Blog from "../Blog";
 import Dashboard from "../Dashboard";
+import Login from "../Login";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/new">
             <BlogForm />
           </Route>
