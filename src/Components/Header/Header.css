@@ -1,10 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Langar&display=swap");
 .Header {
+  background-color: rgba(255, 0, 0, 0.801);
+  padding: 25px 0px;
+}
+
+.Header__heading {
+  text-align: center;
+  color: white;
   font-weight: bolder;
   font-size: x-large;
-  background-color: rgba(255, 0, 0, 0.801);
-  color: white;
-  text-align: center;
-  padding: 25px 0px;
   font-family: "Langar", cursive;
+}
+
+.Header__navlinks {
+  padding: 0px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+}
+
+.Header__navlink {
+  cursor: pointer;
 }
