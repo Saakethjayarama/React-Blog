@@ -40,3 +40,9 @@
   text-align: end;
   padding: 0px 10px;
 }
+
+.BlogTile__createdAt {
+  text-align: right;
+  font-size: small;
+  color: darkcyan;
+}
