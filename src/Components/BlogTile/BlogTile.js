@@ -1,8 +1,11 @@
 import { Button } from "react-bootstrap";
 import React from "react";
 import "./BlogTile.css";
+import { useHistory } from "react-router-dom";
 
 function BlogTile(props) {
+  const history = useHistory();
+
   const { state, initFetch } = props;
 
   const handleDelete = () => {
@@ -14,7 +17,12 @@ function BlogTile(props) {
   };
 
   return (
-    <div className={props.admin ? "BlogTile BlogTile__minHeight" : "BlogTile"}>
+    <div
+      className={props.admin ? "BlogTile BlogTile__minHeight" : "BlogTile"}
+      onClick={() => {
+        history.push(`/blog/${state.id}`);
+      }}
+    >
       <div className="BlogTile__header BlogTile__contentTile">
         {state.title}
       </div>
