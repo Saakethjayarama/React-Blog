@@ -42,7 +42,11 @@
 
     function deleteBlog($id) {
       $connection = JdbcUtil::getConnection();
-      $sql = '';
+      $sql = 'delete from blogs where id = ?';
+
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('i', $id);
+      $statement->execute();
 
       $connection->close();
     }
