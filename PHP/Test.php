@@ -4,7 +4,7 @@
   include_once 'Blog.php';
 
   $bdi = new BlogDaoImpl();
-  $bdi->deleteBlog(3);
+  print_r($bdi->getBlogById(1));
   
 
 ?>

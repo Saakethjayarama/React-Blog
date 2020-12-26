@@ -53,7 +53,7 @@
 
     function getBlogById($id) {
       $connection = JdbcUtil::getConnection();
-      $sql = 'select * from blogs where id = *';
+      $sql = 'select * from blogs where id = ?';
 
       $statement = $connection->prepare($sql);
       $statement->bind_param('i', $id);
