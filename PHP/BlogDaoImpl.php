@@ -4,7 +4,7 @@
   include_once 'JdbcUtil.php';
   
 
-  class BlogDao implements BlogDaoImpl {
+  class BlogDaoImpl implements BlogDao {
     function getAllBlogs() {
       $connection = JdbcUtil::getConnection();
       $sql = 'select * from blogs';
@@ -42,7 +42,7 @@
 
       $connection->close();
     }
-    
+
   }
 
 ?>
