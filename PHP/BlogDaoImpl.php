@@ -40,6 +40,22 @@
       return $n;
     }
 
+    function editBlog($blog) {
+      $connection = JdbcUtil::getConnection();
+      $sql = 'update blogs set description = ?, title = ?, author = ?  where id = ?';
+
+      $id = $blog->getId();
+      $title = $blog->getTitle();
+      $description = $blog->getDescription();
+      $author = $blog->getAuthor();
+
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('sssi', $description, $title, $author, $id);
+
+      $statement->execute();
+      $connection->close();
+    }
+
     function deleteBlog($id) {
       $connection = JdbcUtil::getConnection();
       $sql = 'delete from blogs where id = ?';

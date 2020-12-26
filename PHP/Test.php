@@ -4,7 +4,7 @@
   include_once 'Blog.php';
 
   $bdi = new BlogDaoImpl();
-  print_r($bdi->getBlogById(1));
+  $bdi->editBlog(new Blog(1, 'Subtle art of not giving f**k', 'The subtle art', null, 'Saaki'));
   
 
 ?>
