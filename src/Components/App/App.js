@@ -22,7 +22,7 @@ function App() {
             <Dashboard />
           </Route>
           <Route path="/edit/:id">
-            <BlogForm />
+            <BlogForm admin />
           </Route>
           <Route path="/">
             <Landing />
