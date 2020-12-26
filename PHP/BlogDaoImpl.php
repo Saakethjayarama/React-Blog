@@ -34,7 +34,7 @@
       $statement->bind_param('sss', $title, $description, $author);
       $statement->execute();
 
-      $n = $connection->inserted_id;
+      $n = $connection->insert_id;
       $connection->close();
 
       return $n;

@@ -4,7 +4,8 @@
   include_once 'Blog.php';
 
   $bdi = new BlogDaoImpl();
-  print_r($bdi->getAllBlogs());
+  echo $bdi->addBlog(new Blog(null, 'Eeee', 'eee', null, 'Saaketh'));
+
   
 
 ?>
