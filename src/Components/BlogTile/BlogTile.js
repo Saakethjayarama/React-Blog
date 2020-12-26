@@ -33,18 +33,22 @@ function BlogTile(props) {
         <p>- {state.author}</p>
       </div>
       <hr />
-      <div className="BlogTile__createdAt">{state.createdAt}</div>
-      <hr />
+
       {props.admin ? (
         <>
-          <div className="float-right">
+          <div className="BlogTile__Actions">
             <Button variant="warning">Edit</Button>
             <Button variant="danger" onClick={handleDelete}>
               Delete
             </Button>
           </div>
         </>
-      ) : null}
+      ) : (
+        <>
+          <div className="BlogTile__createdAt">{state.createdAt}</div>
+          <hr />
+        </>
+      )}
     </div>
   );
 }

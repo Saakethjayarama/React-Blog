@@ -46,3 +46,8 @@
   font-size: small;
   color: darkcyan;
 }
+
+.BlogTile__Actions {
+  display: flex;
+  justify-content: flex-end;
+}
